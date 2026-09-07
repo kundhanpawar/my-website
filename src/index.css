@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #020817; /* Base deep oceanic/ember obsidian */
+    color: #e2e8f0;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Water & Ice Theme Tokens (Default) */
+html.theme-water-ice body {
+  background-color: #020b18;
+  background-image: 
+    radial-gradient(ellipse 80% 80% at 50% -20%, rgba(14, 165, 233, 0.15), rgba(2, 11, 24, 0)),
+    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(6, 182, 212, 0.1), rgba(2, 11, 24, 0));
+}
+
+/* Fire & Ember Theme Tokens */
+html.theme-fire body {
+  background-color: #0d0404;
+  background-image: 
+    radial-gradient(ellipse 80% 80% at 50% -20%, rgba(249, 115, 22, 0.18), rgba(13, 4, 4, 0)),
+    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(239, 68, 68, 0.12), rgba(13, 4, 4, 0));
+}
+
+/* Elemental Water-Ice Styling */
+.element-water-card {
+  background: rgba(8, 28, 54, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+}
+
+.element-water-card:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 15px 35px -5px rgba(6, 182, 212, 0.35);
+}
+
+/* Elemental Fire Styling */
+.element-fire-card {
+  background: rgba(30, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.2);
+}
+
+.element-fire-card:hover {
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 0 15px 35px -5px rgba(249, 115, 22, 0.4);
+}
+
+/* Dynamic Responsive Elemental Card */
+.element-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.theme-water-ice .element-card {
+  background: rgba(6, 25, 48, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.18);
+}
+
+html.theme-water-ice .element-card:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 15px 35px -5px rgba(6, 182, 212, 0.3);
+}
+
+html.theme-fire .element-card {
+  background: rgba(30, 10, 10, 0.7);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.2);
+}
+
+html.theme-fire .element-card:hover {
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 0 15px 35px -5px rgba(249, 115, 22, 0.38);
+}
+
+/* Sliding Animations & Wobbly Keyframes */
+@keyframes funny-wobble {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  15% { transform: translateX(-6px) rotate(-4deg); }
+  30% { transform: translateX(5px) rotate(4deg); }
+  45% { transform: translateX(-4px) rotate(-2deg); }
+  60% { transform: translateX(3px) rotate(2deg); }
+  75% { transform: translateX(-1px) rotate(-1deg); }
+}
+
+.animate-wobble {
+  animation: funny-wobble 0.7s ease-in-out;
+}
+
+@keyframes slide-drift {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes ice-shimmer {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-ice-shimmer {
+  animation: ice-shimmer 3s infinite ease-in-out;
+}
+
+@keyframes fire-flicker {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.6)); }
+  50% { filter: drop-shadow(0 0 18px rgba(239, 68, 68, 0.9)); }
+}
+
+.animate-fire-flicker {
+  animation: fire-flicker 1.8s infinite ease-in-out;
+}
+
+/* Custom themed scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+html.theme-water-ice ::-webkit-scrollbar-track {
+  background: #020b18;
+}
+html.theme-water-ice ::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+}
+html.theme-water-ice ::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.6);
+}
+
+html.theme-fire ::-webkit-scrollbar-track {
+  background: #0d0404;
+}
+html.theme-fire ::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.35);
+  border-radius: 4px;
+}
+html.theme-fire ::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.7);
+}
+
